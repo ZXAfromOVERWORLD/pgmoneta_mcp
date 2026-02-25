@@ -40,9 +40,30 @@ doc/manual/en/??-*.md
 
 ### Prerequisites
 
-- `pandoc`
-- Eisvogel template available to Pandoc (`--template eisvogel`)
-- A LaTeX engine supported by your Pandoc setup (for PDF output)
+- [Pandoc](https://pandoc.org)
+- Eisvogel template available to [Pandoc](https://pandoc.org) (`--template eisvogel`)
+- A [LaTeX](https://www.tug.org/texlive/) engine supported by your Pandoc setup (for PDF output)
+
+```sh
+dnf install pandoc texlive-scheme-basic \
+            'tex(footnote.sty)' 'tex(footnotebackref.sty)' \
+            'tex(pagecolor.sty)' 'tex(hardwrap.sty)' \
+            'tex(mdframed.sty)' 'tex(sourcesanspro.sty)' \
+            'tex(ly1enc.def)' 'tex(sourcecodepro.sty)' \
+            'tex(titling.sty)' 'tex(csquotes.sty)' \
+            'tex(zref-abspage.sty)' 'tex(needspace.sty)'
+```
+
+You will need the `Eisvogel` template as well which you can install through
+
+```sh
+wget https://github.com/Wandmalfarbe/pandoc-latex-template/releases/download/v3.4.0/Eisvogel-3.4.0.tar.gz
+tar -xzf Eisvogel-3.4.0.tar.gz
+mkdir -p ~/.local/share/pandoc/templates
+mv Eisvogel-3.4.0/eisvogel.latex ~/.local/share/pandoc/templates/
+```
+
+where `$HOME` is your home directory.
 
 ### Build command
 
