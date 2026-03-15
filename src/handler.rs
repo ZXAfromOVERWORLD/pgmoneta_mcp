@@ -15,6 +15,7 @@
 
 mod hello;
 mod info;
+mod shutdown;
 
 use super::constant::*;
 use super::constant::{Command, Compression, Encryption};
@@ -49,6 +50,7 @@ impl PgmonetaHandler {
             .with_sync_tool::<hello::SayHelloTool>()
             .with_async_tool::<info::GetBackupInfoTool>()
             .with_async_tool::<info::ListBackupsTool>()
+            .with_async_tool::<shutdown::ShutdownTool>()
     }
 }
 
